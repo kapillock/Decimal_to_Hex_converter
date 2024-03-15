@@ -27,28 +27,28 @@ char * DEC2HEX(unsigned long int decimalNum)
     }
     if(buff_len == 4) 
     {
-        hex_buff[1] = buff[1]|(buff[0]<<4);
-        hex_buff[0] = buff[3]|(buff[2]<<4);
+        hex_buff[0] = buff[1]|(buff[0]<<4);
+        hex_buff[1] = buff[3]|(buff[2]<<4);
     }
     else if(buff_len == 3)
     {
-        hex_buff[1] = buff[0];
-        hex_buff[0] = buff[2]|(buff[1]<<4);
+        hex_buff[0] = buff[0];
+        hex_buff[1] = buff[2]|(buff[1]<<4);
     }
     else if(buff_len == 2)
     {
-        hex_buff[1] = 0x00;
-        hex_buff[0] = buff[1]|(buff[0]<<4);
+        hex_buff[0] = 0x00;
+        hex_buff[1] = buff[1]|(buff[0]<<4);
     }
     else if(buff_len == 1)
     {
-        hex_buff[1] = 0x00;
-        hex_buff[0] = buff[0];
+        hex_buff[0] = 0x00;
+        hex_buff[1] = buff[0];
     }
     else 
     {
-        hex_buff[1] = 0x00;
         hex_buff[0] = 0x00;
+        hex_buff[1] = 0x00;
     }
     return hex_buff;
 }
@@ -60,7 +60,7 @@ int main()
 
     strcpy(hex_str,DEC2HEX(43981));
 
-    printf("HEX output : %.2X %.2X \n\r", hex_str[1], hex_str[0]);
+    printf("HEX output : %.2X %.2X \n\r", hex_str[0], hex_str[1]);
 
 
     return 0;
